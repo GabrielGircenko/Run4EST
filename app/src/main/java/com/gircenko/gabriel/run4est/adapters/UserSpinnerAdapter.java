@@ -22,6 +22,12 @@ public class UserSpinnerAdapter extends ArrayAdapter<String> {
         super.add(name);
     }
 
+    public void removeItem(String userId) {
+        int position = ids.indexOf(userId);
+        ids.remove(position);
+        super.remove(this.getItem(position));
+    }
+
     public String getUserId(int selectedItemPosition) {
         return ids.get(selectedItemPosition);
     }

@@ -126,6 +126,8 @@ public class Helper {
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                 Log.i(TAG, "onChildChanged");
+                listener.onUserRemoved(dataSnapshot.getKey());
+                listener.onUserAdded(dataSnapshot.getKey(), dataSnapshot.child(Constants.NAME).getValue(String.class));
             }
 
             @Override

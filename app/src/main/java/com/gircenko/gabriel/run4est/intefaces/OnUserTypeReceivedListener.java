@@ -6,4 +6,5 @@ package com.gircenko.gabriel.run4est.intefaces;
 
 public interface OnUserTypeReceivedListener {
     void onUserAdded(String userId, String name);
+    void onUserRemoved(String userId);
 }

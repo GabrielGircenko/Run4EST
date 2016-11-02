@@ -38,6 +38,10 @@ public abstract class ActivityWithPermissions extends ActivityWithProgressDialog
         spinnerArrayAdapter.addItem(userId, name);
     }
 
+    private void removeUserFromSpinner(String userId) {
+        spinnerArrayAdapter.removeItem(userId);
+    }
+
     private void checkForUserType() {
         Helper.getUserList(firebaseDatabase, new OnUserTypeReceivedListener() {
 
@@ -51,6 +55,13 @@ public abstract class ActivityWithPermissions extends ActivityWithProgressDialog
 
                     addUserToSpinner(userId, name);
                     showSpinner();
+                }
+            }
+
+            @Override
+            public void onUserRemoved(String userId) {
+                if (App.userType == UserType.ADMIN || App.userType == UserType.MANAGER && isSettings) {
+                    removeUserFromSpinner(userId);
                 }
             }
         });

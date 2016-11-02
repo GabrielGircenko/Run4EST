@@ -30,6 +30,7 @@ android {
         exclude 'META-INF/license.txt'
         exclude 'META-INF/dependencies.txt'
         exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/jersey-module-version'
 
     }
 }
@@ -46,6 +47,12 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.android.support:design:22.2.0'
+    compile 'com.sun.jersey:jersey-client:1.17.1'
+//    compile 'com.sun.jersey:jersey-core:1.17.1'
+//    compile 'com.sun.jersey:jersey-server:1.17.1'
+//    compile 'com.sun.jersey:jersey-servlet:1.17.1'
+//    testCompile 'com.sun.jersey:jersey-client:1.17.1'
+//    testCompile 'com.sun.jersey:jersey-core:1.17.1'
     testCompile 'junit:junit:4.12'
     testCompile('org.powermock:powermock-api-mockito:1.6.5')
     testCompile('org.powermock:powermock-module-junit4:1.6.5')
