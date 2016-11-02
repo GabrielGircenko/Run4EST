@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "92833087685",
+    "firebase_url": "https://run4est-f7ab6.firebaseio.com",
+    "project_id": "run4est-f7ab6",
+    "storage_bucket": "run4est-f7ab6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92833087685:android:f71bd72757936dae",
+        "android_client_info": {
+          "package_name": "com.gircenko.gabriel.run4est"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92833087685-rdevjpndkgmu4ne15n8irnd44t07veu2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwjF_1xPdhAL5dqm3DCmA8AEE0RFsh2Ck"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
