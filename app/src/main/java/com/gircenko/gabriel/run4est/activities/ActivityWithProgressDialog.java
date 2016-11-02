@@ -17,7 +17,6 @@ public class ActivityWithProgressDialog extends AppCompatActivity {
     private ProgressDialog progressDialog;
     protected FirebaseAuth firebaseAuth;
 
-    /**{@inheritDoc}*/
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

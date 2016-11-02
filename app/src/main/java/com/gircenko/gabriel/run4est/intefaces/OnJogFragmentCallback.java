@@ -5,6 +5,5 @@ package com.gircenko.gabriel.run4est.intefaces;
  */
 
 public interface OnJogFragmentCallback {
-
     void onTotalCountClicked(String date);
 }

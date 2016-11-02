@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.gircenko.gabriel.run4est.Constants;
 import com.gircenko.gabriel.run4est.Helper;
 import com.gircenko.gabriel.run4est.R;
-import com.gircenko.gabriel.run4est.adapters.JogPagerAdapter;
 import com.gircenko.gabriel.run4est.adapters.JogsListAdapter;
 import com.gircenko.gabriel.run4est.models.JogModelWithId;
 import com.google.firebase.database.ChildEventListener;
@@ -20,9 +19,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -92,10 +88,6 @@ public class JogListActivity extends ActivityWithProgressDialog {
         }
 
         setUserEmail(firebaseAuth.getCurrentUser().getEmail());
-    }
-
-    private void setJogs(List<JogModelWithId> jogs) {
-        adapter.setItemList(jogs);
     }
 
     private void addJogToList(JogModelWithId jogModelWithId) {
@@ -173,36 +165,6 @@ public class JogListActivity extends ActivityWithProgressDialog {
                 removeItemFromTheList(jog.getJogId());
                 setTotalDistance(totalDistance + " km");
             }
-        }
-    }
-
-    private void onJogsChanged(List<JogModelWithId> jogs) {
-        if (jogs != null && !jogs.isEmpty()) {
-            int day = Helper.getDayInLastWeekByDate(jogs.get(0).getJog().getDate());
-            if (day >= 0 && date != null && date.equals(jogs.get(0).getJog().getDate())) {
-                map = new TreeMap<>();
-                totalDistance = 0;
-
-                Iterator<JogModelWithId> iterator = jogs.iterator();
-                while (iterator.hasNext()) {
-                    JogModelWithId jog = iterator.next();
-                    map.put(jog.getJogId(), jog);
-                    totalDistance += jog.getJog().getDistance();
-                }
-
-                setJogs(jogs);
-                setTotalDistance(totalDistance + " km");
-            }
-
-        } else {
-            if (jogs == null) {
-                jogs = new ArrayList<>();
-            }
-
-            map = new TreeMap<>();
-            totalDistance = 0;
-            setJogs(jogs);
-            setTotalDistance(totalDistance + " km");
         }
     }
 }

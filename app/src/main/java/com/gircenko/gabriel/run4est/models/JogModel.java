@@ -7,6 +7,7 @@ public class JogModel {
 
     /** In {@link com.gircenko.gabriel.run4est.Constants#DATE_FORMAT} */
     private String date;
+    /** In {@link com.gircenko.gabriel.run4est.Constants#TIME_FORMAT} */
     private String time;
     private long distance;
 

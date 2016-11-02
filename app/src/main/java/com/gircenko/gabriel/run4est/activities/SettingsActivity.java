@@ -139,9 +139,11 @@ public class SettingsActivity extends ActivityWithPermissions {
         et_name.setText(name);
     }
 
-    public void onNameRetrieved(String name) {
+    private void onNameRetrieved(String name) {
         setName(name);
     }
 
-    public void onNameError() {}
+    private void onNameError() {
+        // TODO
+    }
 }

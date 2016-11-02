@@ -64,6 +64,10 @@ public class JogFragment extends Fragment {
         callback.onTotalCountClicked(tv_date.getText().toString());
     }
 
+    /**
+     * Used by MainActivity
+     * @param date
+     */
     public void setDate(String date) {
         this.date = date;
         if (tv_date != null) {
@@ -71,6 +75,10 @@ public class JogFragment extends Fragment {
         }
     }
 
+    /**
+     * Used by MainActivity
+     * @param totalTime
+     */
     public void setTotalTime(String totalTime) {
         this.totalTime = totalTime;
         if (tv_calories != null) {

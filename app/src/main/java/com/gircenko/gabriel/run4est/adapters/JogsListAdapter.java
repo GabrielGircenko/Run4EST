@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.gircenko.gabriel.run4est.Helper;
 import com.gircenko.gabriel.run4est.R;
-import com.gircenko.gabriel.run4est.models.JogModel;
 import com.gircenko.gabriel.run4est.models.JogModelWithId;
 
 import java.util.ArrayList;
@@ -29,11 +28,6 @@ public class JogsListAdapter extends BaseAdapter {
 
     public JogsListAdapter(Context context) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    }
-
-    public void setItemList(List<JogModelWithId> jogs) {
-        items = jogs;
-        notifyDataSetChanged();
     }
 
     public void addItem(JogModelWithId jogModel) {

@@ -20,7 +20,6 @@ public class Constants {
     public static final String USER_JOGS = "UserJogs";
     public static final String USER_DATA = "UserData";
     public static final String USER_PERMISSIONS = "UserPermissions";
-//    public static final String JOGS = "Jogs";
 
     // fields
     public static final String USER_TYPE = "userType";

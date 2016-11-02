@@ -35,17 +35,6 @@ public class JogsWithHeadersListAdapter extends BaseAdapter {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    public void addItems(List<JogModelWithId> jogs) {
-        String date = jogs.get(0).getJog().getDate();
-        while (mData.containsKey(date)) {
-            mData.remove(date);
-        }
-
-        jogs.add(0, new JogModelWithId(null, null));
-        mData.put(date, jogs);
-        refreshData();
-    }
-
     public void addItem(JogModelWithId jog) {
         String date = jog.getJog().getDate();
         List<JogModelWithId> jogs = new ArrayList<>();

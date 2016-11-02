@@ -1,9 +1,9 @@
 package com.gircenko.gabriel.run4est.activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,8 +28,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -102,11 +100,11 @@ public class MainActivity extends AppCompatActivity implements OnJogFragmentCall
         startActivity(new Intent(this, LoginActivity.class));
     }
 
-    public void setTotalDistanceText(int page, String totalCalories) {
+    private void setTotalDistanceText(int page, String totalCalories) {
         ((JogFragment) adapter.getItem(page)).setTotalTime(totalCalories);
     }
 
-    public void applyDate(int page, String date) {
+    private void applyDate(int page, String date) {
         ((JogFragment) adapter.getItem(page)).setDate(date);
     }
 
@@ -202,42 +200,6 @@ public class MainActivity extends AppCompatActivity implements OnJogFragmentCall
                     map.remove(jog.getJogId());
                     setTotalDistance(day);
                 }
-            }
-        }
-    }
-
-    private void onJogsChanged(List<JogModelWithId> jogs) {
-        if (jogs != null && !jogs.isEmpty()) {
-            int day = Helper.getDayInLastWeekByDate(jogs.get(0).getJog().getDate());
-            if (day >= 0) {
-                map = new TreeMap<>();
-                totalDistance[day] = 0;
-                Iterator<JogModelWithId> iterator = jogs.iterator();
-                while (iterator.hasNext()) {
-                    JogModelWithId jog = iterator.next();
-                    map.put(jog.getJogId(), jog);
-                    totalDistance[day] += jog.getJog().getDistance();
-                }
-
-                setTotalDistance(day);
-            }
-
-        } else {
-            map = new TreeMap<>();
-            totalDistance = new int[JogPagerAdapter.PAGE_COUNT];
-            for (int i = 0; i < JogPagerAdapter.PAGE_COUNT; i++) {
-                setTotalDistance(i);
-            }
-        }
-    }
-
-    private void onJogRemoved(JogModelWithId jogModelWithId) {
-        if (jogModelWithId != null) {
-            int day = Helper.getDayInLastWeekByDate(jogModelWithId.getJog().getDate());
-            if (day >= 0) {
-                totalDistance[day] -= jogModelWithId.getJog().getDistance();
-                map.remove(jogModelWithId.getJogId());
-                setTotalDistance(day);
             }
         }
     }
