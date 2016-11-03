@@ -25,12 +25,18 @@ public class JogFragment extends Fragment {
     @BindView(R.id.tv_date)
     TextView tv_date;
     @BindView(R.id.tv_total_distance)
-    TextView tv_calories;
+    TextView tv_total_distance;
+    @BindView(R.id.tv_average_distance)
+    TextView tv_average_distance;
+    @BindView(R.id.tv_average_speed)
+    TextView tv_average_speed;
 
     private OnJogFragmentCallback callback;
 
     private String date = null;
-    private String totalTime = null;
+    private String totalDistance = null;
+    private String averageDistance = null;
+    private String averageSpeed = null;
 
     @Override
     public void onAttach(Context context) {
@@ -54,8 +60,16 @@ public class JogFragment extends Fragment {
             tv_date.setText(date);
         }
 
-        if (totalTime != null && tv_calories != null) {
-            tv_calories.setText(String.valueOf(totalTime));
+        if (totalDistance != null && tv_total_distance != null) {
+            tv_total_distance.setText(String.valueOf(totalDistance));
+        }
+
+        if (averageDistance != null && tv_average_distance != null) {
+            tv_average_distance.setText(String.valueOf(averageDistance));
+        }
+
+        if (averageSpeed != null && tv_average_speed != null) {
+            tv_average_speed.setText(String.valueOf(averageSpeed));
         }
     }
 
@@ -77,12 +91,26 @@ public class JogFragment extends Fragment {
 
     /**
      * Used by MainActivity
-     * @param totalTime
+     * @param totalDistance
      */
-    public void setTotalTime(String totalTime) {
-        this.totalTime = totalTime;
-        if (tv_calories != null) {
-            tv_calories.setText(totalTime);
+    public void setTotalDistance(String totalDistance) {
+        this.totalDistance = totalDistance;
+        if (tv_total_distance != null) {
+            tv_total_distance.setText(totalDistance);
+        }
+    }
+
+    public void setAverageDistance(String distance) {
+        this.averageDistance = distance;
+        if (tv_average_distance != null) {
+            tv_average_distance.setText(distance);
+        }
+    }
+
+    public void setAverageSpeed(String speed) {
+        this.averageSpeed = speed;
+        if (tv_average_speed != null) {
+            tv_average_speed.setText(speed);
         }
     }
 }

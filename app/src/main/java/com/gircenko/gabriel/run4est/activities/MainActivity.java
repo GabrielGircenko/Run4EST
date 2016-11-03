@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements OnJogFragmentCall
     /** String key is the jogId */
     private Map<String, JogModelWithId> map = new TreeMap<>();
     private int[] totalDistance = new int[JogPagerAdapter.PAGE_COUNT];
+    private int totalDistanceWeek = 0;
+    private int totalNumberOfJogsWeek = 0;
+    private float averageDistance = 0;
+    private float averageSpeed = 0;
 
     private static final String TAG = "MainActivity";
 
@@ -100,8 +104,18 @@ public class MainActivity extends AppCompatActivity implements OnJogFragmentCall
         startActivity(new Intent(this, LoginActivity.class));
     }
 
-    private void setTotalDistanceText(int page, String totalCalories) {
-        ((JogFragment) adapter.getItem(page)).setTotalTime(totalCalories);
+    private void setTotalDistanceText(int page, String distance) {
+        ((JogFragment) adapter.getItem(page)).setTotalDistance(distance);
+    }
+
+    private void setAverageDistanceText(String avgDistance) {
+        for (int i = 0; i < JogPagerAdapter.PAGE_COUNT; i++)
+            ((JogFragment) adapter.getItem(i)).setAverageDistance(avgDistance);
+    }
+
+    private void setAverageSpeedText(String avgSpeed) {
+        for (int i = 0; i < JogPagerAdapter.PAGE_COUNT; i++)
+            ((JogFragment) adapter.getItem(i)).setAverageSpeed(avgSpeed);
     }
 
     private void applyDate(int page, String date) {
@@ -184,8 +198,20 @@ public class MainActivity extends AppCompatActivity implements OnJogFragmentCall
             int day = Helper.getDayInLastWeekByDate(jog.getJog().getDate());
             if (day >= 0) {
                 map.put(jog.getJogId(), jog);
+                if (map.size() == 1) {
+                    averageDistance = jog.getJog().getDistance();
+                    averageSpeed = Float.valueOf(Helper.getAverageSpeed(jog.getJog().getTime(), jog.getJog().getDistance()));
+
+                } else {
+                    averageDistance = (averageDistance + jog.getJog().getDistance()) / 2;
+                    float speed = Float.valueOf(Helper.getAverageSpeed(jog.getJog().getTime(), jog.getJog().getDistance()));
+                    averageSpeed = (averageSpeed + speed) / 2;
+                }
+
                 totalDistance[day] += jog.getJog().getDistance();
                 setTotalDistance(day);
+                setAverageDistanceText(String.format("%.2f", averageDistance));
+                setAverageSpeedText(String.format("%.2f", averageSpeed));
             }
         }
     }

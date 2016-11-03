@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_total_time"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/rl_total_time">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/tv_date"
-        android:text="14.09.16."
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="14.09.16." />
 
     <TextView
         android:id="@+id/tv_total_distance"
-        android:text="No Jogs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:text="No Jogs"
+        android:textAppearance="@android:style/TextAppearance.Large" />
+
+    <TextView
+        android:id="@+id/tv_average_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_total_distance"
+        android:layout_centerHorizontal="true"
+        android:text="No Jogs"
+        android:textAppearance="@android:style/TextAppearance.Large" />
+
+    <TextView
+        android:id="@+id/tv_average_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_average_distance"
+        android:layout_centerHorizontal="true"
+        android:text="No Jogs"
         android:textAppearance="@android:style/TextAppearance.Large" />
 
 </RelativeLayout>

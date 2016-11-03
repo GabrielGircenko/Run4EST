@@ -149,12 +149,17 @@ public class EditJogActivity extends ActivityWithPermissions implements
                 String date = et_date.getText().toString();
                 String time = et_time.getText().toString();
 
-                if (App.userType == UserType.ADMIN && !showDelete) {
-                    String user = getSelectedUserId(sp_user.getSelectedItemPosition());
-                    attemptToSaveJog(user, distance, date, time);
+                if (!time.equals("00:00") && !distance.equals("0")) {
 
+                    if (App.userType == UserType.ADMIN && !showDelete) {
+                        String user = getSelectedUserId(sp_user.getSelectedItemPosition());
+                        attemptToSaveJog(user, distance, date, time);
+
+                    } else {
+                        attemptToSaveJog(userId, distance, date, time);
+                    }
                 } else {
-                    attemptToSaveJog(userId, distance, date, time);
+                    onRunSaveFailedDueToIncorrectInput();
                 }
 
                 return true;
