@@ -60,7 +60,7 @@ public class JogFragment extends Fragment {
     }
 
     @OnClick(R.id.rl_total_time)
-    public void goToMealListClicked() {
+    public void goToJogListClicked() {
         callback.onTotalCountClicked(tv_date.getText().toString());
     }
 

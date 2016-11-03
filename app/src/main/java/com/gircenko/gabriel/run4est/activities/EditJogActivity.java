@@ -368,8 +368,8 @@ public class EditJogActivity extends ActivityWithPermissions implements
         }
     }
 
-    private void remove(String mealId) {
-        if (this.jogModelWithId != null && this.jogModelWithId.getJogId() != null && this.jogModelWithId.getJogId().equals(mealId)) {
+    private void remove(String jogId) {
+        if (this.jogModelWithId != null && this.jogModelWithId.getJogId() != null && this.jogModelWithId.getJogId().equals(jogId)) {
             this.jogModelWithId = null;
             initializeDateAndTime();
             setEditDistanceField("");

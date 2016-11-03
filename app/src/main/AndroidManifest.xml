@@ -69,7 +69,7 @@
         </activity>
         <activity
             android:name=".activities.EditJogActivity"
-            android:label="Edit Meal"
+            android:label="Edit Jog"
             android:parentActivityName=".activities.MainActivity"
             android:screenOrientation="portrait">
 

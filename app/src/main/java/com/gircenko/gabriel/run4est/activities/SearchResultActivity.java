@@ -33,7 +33,7 @@ import butterknife.ButterKnife;
 public class SearchResultActivity extends AppCompatActivity {
 
     @BindView(R.id.lv_jog_list)
-    ListView lv_meal_list;
+    ListView lv_jog_list;
 
     private JogsWithHeadersListAdapter adapter;
 
@@ -53,8 +53,8 @@ public class SearchResultActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
 
         adapter = new JogsWithHeadersListAdapter(this);
-        lv_meal_list.setAdapter(adapter);
-        lv_meal_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv_jog_list.setAdapter(adapter);
+        lv_jog_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(SearchResultActivity.this, EditJogActivity.class);

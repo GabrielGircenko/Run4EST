@@ -146,10 +146,10 @@ public class JogsWithHeadersListAdapter extends BaseAdapter {
 
         if (viewType == VIEW_TYPE_ITEM) {
 
-            JogModelWithId meal = getItem(position);
-            holder.tv_time_or_date.setText(meal.getJog().getTime());
-            holder.tv_distance.setText(String.valueOf(meal.getJog().getDistance()) + " km");
-            holder.tv_speed.setText(Helper.getAverageSpeed(meal.getJog().getTime(), meal.getJog().getDistance()) + " km/h");
+            JogModelWithId jogModelWithId = getItem(position);
+            holder.tv_time_or_date.setText(jogModelWithId.getJog().getTime());
+            holder.tv_distance.setText(String.valueOf(jogModelWithId.getJog().getDistance()) + " km");
+            holder.tv_speed.setText(Helper.getAverageSpeed(jogModelWithId.getJog().getTime(), jogModelWithId.getJog().getDistance()) + " km/h");
 
         } else if (viewType == VIEW_TYPE_HEADER) {
             JogModelWithId jogModelWithId = getItem(position + 1);   //  to get the date
